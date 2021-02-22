@@ -16,12 +16,11 @@ Add an extra state to the Blob state machine called BlobStateBlinking. In this s
 
 Override the Leave() function in BlobStateBlinking to add 1 point to the score every time a blob leaves the Blinking state.
 
-
 Grade A:
+
+Merge Working1 and Working2 into master. Resolve the conflicts with the lines marked "Good."
 
 Implement the selection sort algorithm in the RemoveHighestBlobs() function in the GameController class.
 
-Find something else in the code that you could improve. Implement your improvement and leave a comment explaining your changes.
-
-Note: If you can't get Git working and submit the assignment via NYU classes the highest grade available will be B.
+Submit the project via pull request.
 
