@@ -41,6 +41,7 @@ public class Blob : MonoBehaviour
     {
         controller.RemoveFromList(this);
         Destroy(gameObject);
-        controller.AddScore(10);
+        //CHANGE: Because of how we are now using a getter/setter to set score, I changed up how you get the score a little bit
+        controller.Score = controller.Score + 10;
     }
 }
