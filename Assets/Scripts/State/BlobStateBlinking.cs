@@ -27,4 +27,10 @@ public class BlobStateBlinking : BlobState
         //Gets the renderer of the blob, so that it can blink on/off
         blobRenderer = blob.GetComponent<Renderer>();
     }
+    
+    //CHANGE: Introduced a function for when the blob leaves this state, granting the player 1 point
+    public override void Leave()
+    {
+        blob.LeaveBlink();
+    }
 }

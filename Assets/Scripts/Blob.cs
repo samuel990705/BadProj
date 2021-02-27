@@ -53,4 +53,8 @@ public class Blob : MonoBehaviour
         //CHANGE: Because of how we are now using a getter/setter to set score, I changed up how you get the score a little bit
         controller.Score = controller.Score + 10;
     }
+    //CHANGE: Introduced a function that's called when the blob leaves its blinking state, to increase score
+    public void LeaveBlink() {
+        controller.Score = controller.Score + 1;
+    }
 }

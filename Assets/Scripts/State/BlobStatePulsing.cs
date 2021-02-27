@@ -52,4 +52,5 @@ public class BlobStatePulsing : BlobState
         targetColor = Random.ColorHSV(); // Get a random color.
         endTime = Random.Range(minTime, maxTime);
     }
+
 }
