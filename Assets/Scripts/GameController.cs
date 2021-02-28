@@ -81,6 +81,7 @@ public class GameController : MonoBehaviour
     }
 
     // Remove the blobs with the highest y values. 
+    // Remove the blobs with the highest y values. 
     public void RemoveHighestBlobs()
     {
         // Selection sort the list of blobs by y
@@ -88,12 +89,15 @@ public class GameController : MonoBehaviour
         {
             int lowest = i;
 
-            // TODO: Implement selection sort here!
+            // Selection sort algorithm: Find the minumum value in the unsorted part of the array and place it at the beginning of the list.
+            // Repeat for the remaining portion of the array.
+            // Code based on https://www.geeksforgeeks.org/selection-sort/ // Good! Merge this
 
-            // Swap
-            Blob temp = blobList[i];
-            blobList[i] = blobList[lowest];
-            blobList[lowest] = temp;
+
+            // TODO: COMPLETE THE SELECTION SORT CODE HERE
+
+            // Swap using a tuple
+            (blobList[i], blobList[lowest]) = (blobList[lowest], blobList[i]); // Good! Merge this
         }
 
         // Remove the 50% of the list with the highest y value.
