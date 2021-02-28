@@ -45,7 +45,6 @@ public class BlobStateShrinking : BlobState
     public override void Enter() // Overriden from base class.
     {
         
-        
         elapsedTime = easeOutTime;
         initialScale = blob.transform.localScale;
     }
