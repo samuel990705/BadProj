@@ -69,7 +69,8 @@ public class BlobStateBlinking : BlobState
     public override void Leave()
     {
         base.Leave();
-
+        GameController controller = blob.GetComponentInParent<GameController>();
+        controller.Score = 1;//add score for leaving blink
         renderer.enabled = true;
     }
 }
