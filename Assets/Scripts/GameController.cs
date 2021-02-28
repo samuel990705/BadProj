@@ -90,7 +90,7 @@ public class GameController : MonoBehaviour
 
             // Selection sort algorithm: Find the minumum value in the unsorted part of the array and place it at the beginning of the list.
             // Repeat for the remaining portion of the array.
-            // Code based on https://www.geeksforgeeks.org/quick-sort/ // BAD! Don't merge this
+            // Code based on https://www.geeksforgeeks.org/selection-sort/ // Good! Merge this
 
 
             // TODO: COMPLETE THE SELECTION SORT CODE HERE
