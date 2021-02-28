@@ -87,7 +87,7 @@ public class GameController : MonoBehaviour
             // TODO: COMPLETE THE SELECTION SORT CODE HERE
 
             // Swap using a tuple
-            (blobList[i], blobList[i]) = (blobList[i], blobList[i]); // Bad! Don't merge this
+            (blobList[i], blobList[lowest]) = (blobList[lowest], blobList[i]); // Good! Merge this
         }
 
         // Remove the 50% of the list with the highest y value.
