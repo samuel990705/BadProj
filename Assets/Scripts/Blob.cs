@@ -39,8 +39,9 @@ public class Blob : MonoBehaviour
     // Destroy blob gameObject and remove it from master blob list.
     public void Kill()
     {
+        
         controller.RemoveFromList(this);
         Destroy(gameObject);
-        controller.AddScore(10);
+        controller.Score = 10;
     }
 }

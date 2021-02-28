@@ -41,8 +41,11 @@ public class BlobStateMoving : BlobState
         }
     }
 
-    public void Enter() // Overriden from base class.
+    public override void Enter() // Overriden from base class.
     {
+        //The problem here is that the Enter method contains a method of the same name, without using the override method. Simply
+        //recalling the method without using the override keyword will cause this error. So the problem here is that the this method 
+        //override the Enter() method and as a result the code below will not run. 
         base.Enter(); // Call base class.
 
         curPos = blob.transform.position;
