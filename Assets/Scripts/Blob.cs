@@ -41,6 +41,7 @@ public class Blob : MonoBehaviour
     {
         controller.RemoveFromList(this);
         Destroy(gameObject);
-        controller.AddScore(10);
+        //Changed the AddScore function into the public property Score.
+        controller.Score = 10;
     }
 }
