@@ -23,15 +23,16 @@ public class BlobStateBlinking : BlobState
     public override void Leave()
     {
         blob.StopAllCoroutines();
-        blob.GetComponent<Renderer>().enabled = !blob.GetComponent<Renderer>().enabled;
         blob._controller._score = 1;
       
     }
 
-    public IEnumerator Blinking()
+    public IEnumerator Blinking() //use coroutine to blink every half sec
     {
+        blob.GetComponent<Renderer>().enabled = false;
+        yield return new WaitForSeconds(0.1f);
+        blob.GetComponent<Renderer>().enabled = true;
         yield return new WaitForSeconds(0.5f);
-        blob.GetComponent<Renderer>().enabled = !blob.GetComponent<Renderer>().enabled;
         blob.StartCoroutine(Blinking());
     }
 
