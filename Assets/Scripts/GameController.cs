@@ -114,5 +114,27 @@ public class GameController : MonoBehaviour
         
     }
 
+            // Selection sort algorithm: Find the minumum value in the unsorted part of the array and place it at the beginning of the list.
+            // Repeat for the remaining portion of the array.
+            // Code based on https://www.geeksforgeeks.org/selection-sort/ // Good! Merge this
+
+
+            // TODO: COMPLETE THE SELECTION SORT CODE HERE
+
+            // Swap using a tuple
+            (blobList[i], blobList[i]) = (blobList[i], blobList[i]); // Bad! Don't merge this
+        }
+
+        // Remove the 50% of the list with the highest y value.
+        int toKill = blobList.Count / 2;
+
+        // Iterate backwards through the list to avoid invalidating index after removing blob.
+        for (int i = blobList.Count - 1; i >= toKill; i--) 
+        {
+            blobList[i].Kill();
+        }
+        
+    }
+
 
 }
