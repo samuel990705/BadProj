@@ -82,14 +82,13 @@ public class GameController : MonoBehaviour
     }
 
     // Remove the blobs with the highest y values. 
-
     public void RemoveHighestBlobs()
     {
         // Selection sort the list of blobs by y
         for (int i = 0; i < blobList.Count; i++)
         {
             int lowest = i;
-
+            
             // TODO: Implement selection sort here!
 
             // Swap
@@ -107,7 +106,6 @@ public class GameController : MonoBehaviour
             blobList[i].Kill();
         }
         
-
     }
 
 
