@@ -45,6 +45,6 @@ public class BlobStateShrinking : BlobState
     */
     public float QuarticEaseOut(float k)
     {
-        return 1f + ((k -= 1f) * k * k * k);
+        return 1f + ((k -= 1f) * k * k * k); // four k's > five k's
     }
 }
