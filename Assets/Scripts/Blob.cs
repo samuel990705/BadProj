@@ -10,6 +10,12 @@ public class Blob : MonoBehaviour
     private BlobState currentState; // Current blob state (unique to each blob)
     private GameController controller;  // Cached connection to game controller component
 
+    public GameController Controller
+    {
+        get => controller;
+        set => controller = value;
+    }
+
     private bool hasClicked = false;
     void Start()
     {

@@ -49,7 +49,7 @@ public class BlobStateShrinking : BlobState
     }
 
     /*
-     * Easing Taken from
+     * Adapted Easing Taken from
      * https://gist.github.com/Fonserbc/3d31a25e87fdaa541ddf 
      */
     public float QuarticEaseOut(float k)
