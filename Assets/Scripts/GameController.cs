@@ -90,7 +90,9 @@ public class GameController : MonoBehaviour
             int lowest = i;
             
             // TODO: Implement selection sort here!
-
+            for (int j = i + 1; j < blobList.Count-1; j++) 
+                if (blobList[j].transform.position.y < blobList[lowest].transform.position.y) 
+                    lowest = j; 
             // Swap
             Blob temp = blobList[i];
             blobList[i] = blobList[lowest];

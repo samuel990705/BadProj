@@ -30,15 +30,11 @@ public class BlobStateBlinking : BlobState
 
     IEnumerator Thelink()
     {
-
-        
         yield return new WaitForSeconds(.5f);
 
         blob.GetComponent<MeshRenderer>().enabled = !blob.GetComponent<MeshRenderer>().enabled;
 
         blob.StartCoroutine(Thelink());
-        
-
         //yield return null;
     }
 }
