@@ -82,6 +82,7 @@ public class GameController : MonoBehaviour
     }
 
     // Remove the blobs with the highest y values. 
+
     public void RemoveHighestBlobs()
     {
         // Selection sort the list of blobs by y
@@ -106,6 +107,7 @@ public class GameController : MonoBehaviour
             blobList[i].Kill();
         }
         
+
     }
 
 
