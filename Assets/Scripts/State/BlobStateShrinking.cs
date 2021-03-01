@@ -44,10 +44,10 @@ public class BlobStateShrinking : BlobState
     * at https://github.com/sole/tween.js
     */
 
-    public float QuinticEaseOut(float k)
+    /*public float QuinticEaseOut(float k)
     {
         return 1f + ((k -= 1f) * k * k * k * k);
-    }
+    }*/
 
     public float QuarticEaseOut(float k)  //change quintic/out to quartic/out
     {
