@@ -10,6 +10,17 @@ public class Blob : MonoBehaviour
     private BlobState currentState; // Current blob state (unique to each blob)
     private BlobStateShrinking StateShrinking;
     private GameController controller;  // Cached connection to game controller component
+    public GameController _controller
+    {
+        get
+        {
+            return controller;
+        }
+        set
+        {
+            controller = value;
+        }
+    }
 
     void Start()
     {
