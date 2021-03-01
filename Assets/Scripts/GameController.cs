@@ -33,8 +33,8 @@ public class GameController : MonoBehaviour
 
         set
         {
-            score += value;
-            scoreText.text = score.ToString();
+            _score += value;
+            scoreText.text = _score.ToString();
         }
     }
 
