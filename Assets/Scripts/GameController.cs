@@ -10,7 +10,7 @@ using UnityEngine.UI;
 public class GameController : MonoBehaviour
 {
     // These links must be set in the Inspector.
-    public Blob blobPrefab; 
+    public Blob blobPrefab;
     public Text scoreText; // Link to UI element to display score.
 
     // Control where the blobs spawn.
@@ -39,10 +39,10 @@ public class GameController : MonoBehaviour
 
     void Start()
     {
-        
+
     }
 
-    
+
     void Update()
     {
         // On pressing space bar, remove the the half of the list that is highest up in the y-axis.
@@ -84,36 +84,7 @@ public class GameController : MonoBehaviour
     }
 
     // Remove the blobs with the highest y values. 
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> 48064247a788124df20ea69f1b20880a8c35d528
-    public void RemoveHighestBlobs()
-    {
-        // Selection sort the list of blobs by y
-        for (int i = 0; i < blobList.Count; i++)
-        {
-            int lowest = i;
 
-            // TODO: Implement selection sort here!
-
-            // Swap
-            Blob temp = blobList[i];
-            blobList[i] = blobList[lowest];
-            blobList[lowest] = temp;
-        }
-
-        // Remove the 50% of the list with the highest y value.
-        int toKill = blobList.Count / 2;
-
-        // Iterate backwards through the list to avoid invalidating index after removing blob.
-        for (int i = blobList.Count - 1; i >= toKill; i--) 
-        {
-            blobList[i].Kill();
-        }
-        
-<<<<<<< HEAD
-=======
     public void RemoveHighestBlobs()
     {
         // Selection sort the list of blobs by y
@@ -136,15 +107,9 @@ public class GameController : MonoBehaviour
         int toKill = blobList.Count / 2;
 
         // Iterate backwards through the list to avoid invalidating index after removing blob.
-        for (int i = blobList.Count - 1; i >= toKill; i--) 
+        for (int i = blobList.Count - 1; i >= toKill; i--)
         {
             blobList[i].Kill();
         }
-        
->>>>>>> Working
-=======
->>>>>>> 48064247a788124df20ea69f1b20880a8c35d528
     }
-
-
-}
+} 
