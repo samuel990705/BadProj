@@ -50,6 +50,13 @@ public class BlobStateBlinking : BlobState
         blinkTime = 0f;
     }
 
+    public override void Leave()
+    {
+        base.Leave();
+        renderer.enabled = true;
+        blob.controller.Score = 1;
+    }
+
     public void Blink()
     {
         if (renderer.enabled)
