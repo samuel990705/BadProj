@@ -10,7 +10,6 @@ public class BlobStateShrinking : BlobState
     // Time to destruction.
     private const float easeOutTime = 2.0f;
     private float elapsedTime;
-
     // Store initial scale.
     private Vector3 initialScale;
 
@@ -21,10 +20,11 @@ public class BlobStateShrinking : BlobState
 
     public override void Run() // Overriden from base class.
     {
+        
         elapsedTime -= Time.deltaTime;
-
+        
         // Use an easing effect to give interesting shrinking effect.
-        float scale = QuinticEaseOut(elapsedTime)/ easeOutTime;
+        float scale =  QuarticEaseOut(elapsedTime)/ easeOutTime;
         blob.transform.localScale = new Vector3(initialScale.x * scale, initialScale.y * scale, initialScale.z  * scale);
 
         if (elapsedTime < 0.0f)
@@ -46,5 +46,14 @@ public class BlobStateShrinking : BlobState
     public float QuinticEaseOut(float k)
     {
         return 1f + ((k -= 1f) * k * k * k * k);
+    }
+
+    /*
+     * Easing Taken from
+     * https://gist.github.com/Fonserbc/3d31a25e87fdaa541ddf 
+     */
+    public float QuarticEaseOut(float k)
+    {
+        return 1f - ((k -= 1f)*k*k*k);
     }
 }
