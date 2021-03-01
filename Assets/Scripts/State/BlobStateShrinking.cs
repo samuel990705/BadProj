@@ -24,7 +24,7 @@ public class BlobStateShrinking : BlobState
         elapsedTime -= Time.deltaTime;
 
         // Use an easing effect to give interesting shrinking effect.
-        float scale = QuinticEaseOut(elapsedTime)/ easeOutTime;
+        float scale = QuarticEaseOut(elapsedTime)/ easeOutTime;
         blob.transform.localScale = new Vector3(initialScale.x * scale, initialScale.y * scale, initialScale.z  * scale);
 
         if (elapsedTime < 0.0f)
@@ -46,5 +46,13 @@ public class BlobStateShrinking : BlobState
     public float QuinticEaseOut(float k)
     {
         return 1f + ((k -= 1f) * k * k * k * k);
+    }
+    
+    //Below math quartic out function is credit to https://easings.net/#easeOutQuart
+    public float QuarticEaseOut(float k)
+    {
+        return 1f - Mathf.Pow(1-k,4);
+        //Below is how to calculate in the other language.
+        //return 1 - pow(1 - x, 4);s
     }
 }
