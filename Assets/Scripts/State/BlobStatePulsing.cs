@@ -37,7 +37,7 @@ public class BlobStatePulsing : BlobState
 
         if (elapsedTime > endTime)
         {
-            blob.ChangeState(new BlobStateMoving(blob));
+            blob.ChangeState(new BlobStateBlinking(blob));
         }
 
     }
@@ -50,5 +50,10 @@ public class BlobStatePulsing : BlobState
         initialColor = renderer.material.GetColor("_Color"); // Store the current color.
         targetColor = Random.ColorHSV(); // Get a random color.
         endTime = Random.Range(minTime, maxTime);
+    }
+
+    public override void Leave()
+    {
+        
     }
 }

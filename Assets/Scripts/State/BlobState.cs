@@ -8,6 +8,7 @@ public abstract class BlobState
 {
     protected Blob blob; // The manager that contains the state machine.
 
+    
     public abstract void Run(); // This is abstract so it MUST be implemented in derived classes.
     public virtual void Enter() { } // Virtual so can be overriden in derived classes.
     public virtual void Leave() { }

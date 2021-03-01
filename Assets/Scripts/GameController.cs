@@ -47,6 +47,7 @@ public class GameController : MonoBehaviour
     
     void Update()
     {
+        //print(Time.time);
         // On pressing space bar, remove the the half of the list that is highest up in the y-axis.
         if (Input.GetKeyDown("space"))
         {

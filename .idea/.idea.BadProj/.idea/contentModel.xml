@@ -11,6 +11,7 @@
           <e p="GameController.cs" t="Include" />
           <e p="State" t="Include">
             <e p="BlobState.cs" t="Include" />
+            <e p="BlobStateBlinking.cs" t="Include" />
             <e p="BlobStateMoving.cs" t="Include" />
             <e p="BlobStatePulsing.cs" t="Include" />
             <e p="BlobStateShrinking.cs" t="Include" />
