@@ -9,12 +9,12 @@ public class Blob : MonoBehaviour
 {
     private BlobState currentState; // Current blob state (unique to each blob)
     private GameController controller;  // Cached connection to game controller component
-
+    public bool canPress;
     void Start()
     {
         ChangeState(new BlobStateMoving(this)); // Set initial state.
         controller = GetComponentInParent<GameController>();
-
+        canPress = true;
     }
 
     void Update()
@@ -33,7 +33,12 @@ public class Blob : MonoBehaviour
     // Change blobs to shrinking state when clicked.
     void OnMouseDown()
     {
-        ChangeState(new BlobStateShrinking(this)); 
+        //I use a bool to control press once function
+        if (canPress)
+        {
+            ChangeState(new BlobStateShrinking(this));
+            canPress = false;
+        }
     }
 
     // Destroy blob gameObject and remove it from master blob list.
