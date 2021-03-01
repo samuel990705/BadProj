@@ -40,8 +40,15 @@ public class BlobStateMoving : BlobState
             blob.ChangeState(new BlobStatePulsing(blob)); // Change to color pulsing state.
         }
     }
-
-    public void Enter() // Overriden from base class.
+    
+    
+    /*
+     * The Enter() in this function didn't override the BlobState.Enter().
+     * So when in script Blob, on line 30, currentState.Enter(), if the state is moving.
+     * It won't actually call the Enter() in this script, but calling BlobState.Enter(), which has nothing.
+     * So the blob won't move at all.
+     */
+    public override void Enter() // Overriden from base class.
     {
         base.Enter(); // Call base class.
 

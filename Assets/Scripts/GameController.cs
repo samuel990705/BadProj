@@ -24,6 +24,17 @@ public class GameController : MonoBehaviour
     // Score is added on destroying blobs
     private int score;
 
+    public int Score
+    {
+        get => score;
+        set
+        {
+            score += value; 
+            scoreText.text = score.ToString();
+        }
+        
+    }
+
     // List of all the blobs in the game.
     private List<Blob> blobList = new List<Blob>();
 
