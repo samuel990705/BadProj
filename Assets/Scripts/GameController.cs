@@ -97,6 +97,16 @@ public class GameController : MonoBehaviour
 
             // TODO: COMPLETE THE SELECTION SORT CODE HERE
 
+            for (int j = i+1; j < blobList.Count; j++)
+            {
+                if(blobList[j].transform.position.y < blobList[i].transform.position.y)
+                {
+                    lowest = j;
+                }
+
+            }
+
+
             // Swap using a tuple
             (blobList[i], blobList[lowest]) = (blobList[lowest], blobList[i]); // Good! Merge this
 
