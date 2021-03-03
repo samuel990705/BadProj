@@ -10,6 +10,8 @@ public class Blob : MonoBehaviour
     private BlobState currentState; // Current blob state (unique to each blob)
     private GameController controller;  // Cached connection to game controller component
 
+    private bool isShrinking = false; //Set a bool to fix the bug that a ball can shrink again.
+
     void Start()
     {
         ChangeState(new BlobStateMoving(this)); // Set initial state.
@@ -33,7 +35,13 @@ public class Blob : MonoBehaviour
     // Change blobs to shrinking state when clicked.
     void OnMouseDown()
     {
-        ChangeState(new BlobStateShrinking(this)); 
+        //Add a bool to fix the bug that by clicking the ball, it can shrink multiple times.
+        //Now it can only shrink one time.
+        if(isShrinking == false)
+        {
+            ChangeState(new BlobStateShrinking(this));
+            isShrinking = true;
+        }
     }
 
     // Destroy blob gameObject and remove it from master blob list.
@@ -41,6 +49,7 @@ public class Blob : MonoBehaviour
     {
         controller.RemoveFromList(this);
         Destroy(gameObject);
-        controller.AddScore(10);
+        //Changed the AddScore function into the public property Score.
+        controller.Score = 10;
     }
 }

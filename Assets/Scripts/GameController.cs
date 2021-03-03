@@ -10,7 +10,7 @@ using UnityEngine.UI;
 public class GameController : MonoBehaviour
 {
     // These links must be set in the Inspector.
-    public Blob blobPrefab; 
+    public Blob blobPrefab;
     public Text scoreText; // Link to UI element to display score.
 
     // Control where the blobs spawn.
@@ -23,16 +23,26 @@ public class GameController : MonoBehaviour
 
     // Score is added on destroying blobs
     private int score;
+    //public property Score is now take charge of the AddScore Function.
+    public int Score
+    {
+        get => score;
+        set
+        {
+            score += value;
+            scoreText.text = score.ToString();
+        }
+    }
 
     // List of all the blobs in the game.
     private List<Blob> blobList = new List<Blob>();
 
     void Start()
     {
-        
+
     }
 
-    
+
     void Update()
     {
         // On pressing space bar, remove the the half of the list that is highest up in the y-axis.
@@ -58,11 +68,14 @@ public class GameController : MonoBehaviour
     }
 
     // Add and display score.
+    //Changed into Score so that this is useless.
+    /*
     public void AddScore(int scoreToAdd)
     {
         score += scoreToAdd;
         scoreText.text = score.ToString();
     }
+    */
 
     // Remove blob from blob list.
     public void RemoveFromList(Blob blob)
@@ -71,6 +84,7 @@ public class GameController : MonoBehaviour
     }
 
     // Remove the blobs with the highest y values. 
+
     public void RemoveHighestBlobs()
     {
         // Selection sort the list of blobs by y
@@ -78,12 +92,15 @@ public class GameController : MonoBehaviour
         {
             int lowest = i;
 
-            // TODO: Implement selection sort here!
+            // Selection sort algorithm: Find the minumum value in the unsorted part of the array and place it at the beginning of the list.
+            // Repeat for the remaining portion of the array.
+            // Code based on https://www.geeksforgeeks.org/selection-sort/ // Good! Merge this
 
-            // Swap
-            Blob temp = blobList[i];
-            blobList[i] = blobList[lowest];
-            blobList[lowest] = temp;
+
+            // TODO: COMPLETE THE SELECTION SORT CODE HERE
+
+            // Swap using a tuple
+            (blobList[i], blobList[lowest]) = (blobList[lowest], blobList[i]); // Good! Merge this
         }
 
         // Remove the 50% of the list with the highest y value.
@@ -96,6 +113,4 @@ public class GameController : MonoBehaviour
         }
         
     }
-
-
-}
+} 
