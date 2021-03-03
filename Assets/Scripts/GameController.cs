@@ -24,6 +24,18 @@ public class GameController : MonoBehaviour
     // Score is added on destroying blobs
     private int score;
 
+    public int Score
+    {
+        get => score;
+        set
+        {
+            score += value;
+            scoreText.text = score.ToString();
+        }
+        
+        
+    }
+
     // List of all the blobs in the game.
     private List<Blob> blobList = new List<Blob>();
 
@@ -35,6 +47,7 @@ public class GameController : MonoBehaviour
     
     void Update()
     {
+        //print(Time.time);
         // On pressing space bar, remove the the half of the list that is highest up in the y-axis.
         if (Input.GetKeyDown("space"))
         {
@@ -58,6 +71,7 @@ public class GameController : MonoBehaviour
     }
 
     // Add and display score.
+    //Below is then no use
     public void AddScore(int scoreToAdd)
     {
         score += scoreToAdd;
