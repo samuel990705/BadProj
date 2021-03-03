@@ -25,6 +25,11 @@ public class Blob : MonoBehaviour
     // Change state.
     public void ChangeState(BlobState newState)
     {
+        if (currentState == newState)
+        {
+            return;
+        }
+
         if (currentState != null) currentState.Leave();
         currentState = newState;
         currentState.Enter();
@@ -41,6 +46,6 @@ public class Blob : MonoBehaviour
     {
         controller.RemoveFromList(this);
         Destroy(gameObject);
-        controller.AddScore(10);
+        controller.Score =10 ;
     }
 }
