@@ -41,7 +41,8 @@ public class BlobStateMoving : BlobState
         }
     }
 
-    public void Enter() // Overriden from base class.
+    //the override keyword was not written before.Without the override keyword, this Enter() method will be replaced by the virtual method Enter() from BlobState class.
+    public override void Enter() // Overriden from base class. 
     {
         base.Enter(); // Call base class.
 
