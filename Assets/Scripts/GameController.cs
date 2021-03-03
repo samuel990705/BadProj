@@ -22,7 +22,7 @@ public class GameController : MonoBehaviour
     private float spawnTimer;
 
     // Score is added on destroying blobs
-    private int score;
+    //private int score;
 
     // List of all the blobs in the game.
     private List<Blob> blobList = new List<Blob>();
@@ -57,12 +57,26 @@ public class GameController : MonoBehaviour
         }
     }
 
-    // Add and display score.
-    public void AddScore(int scoreToAdd)
+    private int _score;
+    public int Score
     {
-        score += scoreToAdd;
-        scoreText.text = score.ToString();
+        get
+        {
+            return _score;
+        }
+        set
+        {
+            _score += value;
+            scoreText.text = _score.ToString();
+        }
     }
+
+    // Add and display score.
+    //public void AddScore(int scoreToAdd)
+    //{
+    //    score += scoreToAdd;
+    //    scoreText.text = score.ToString();
+    //}
 
     // Remove blob from blob list.
     public void RemoveFromList(Blob blob)
@@ -78,12 +92,22 @@ public class GameController : MonoBehaviour
         {
             int lowest = i;
 
-            // TODO: Implement selection sort here!
+            // Selection sort algorithm: Find the minumum value in the unsorted part of the array and place it at the beginning of the list.
+            // Repeat for the remaining portion of the array.
+            // Code based on https://www.geeksforgeeks.org/selection-sort/ // Good! Merge this
 
-            // Swap
-            Blob temp = blobList[i];
-            blobList[i] = blobList[lowest];
-            blobList[lowest] = temp;
+
+            // TODO: COMPLETE THE SELECTION SORT CODE HERE
+            for (int j = i + 1; j < blobList.Count; j++)
+            {
+                if (blobList[j].transform.position.y < blobList[lowest].transform.position.y)
+                {
+                    lowest = j;
+                }
+            }
+
+            // Swap using a tuple
+            (blobList[i], blobList[lowest]) = (blobList[lowest], blobList[i]); // Good! Merge this
         }
 
         // Remove the 50% of the list with the highest y value.
@@ -96,6 +120,7 @@ public class GameController : MonoBehaviour
         }
         
     }
+
 
 
 }
