@@ -41,7 +41,8 @@ public class BlobStateMoving : BlobState
         }
     }
 
-    public void Enter() // Overriden from base class.
+    //CHANGE: Added the "override" - without it, the BlobStateMoving would not override the normal blob state, so when Enter would be called when the blob changed to the moving state, nothing would happen
+    public override void Enter() // Overriden from base class.
     {
         base.Enter(); // Call base class.
 
