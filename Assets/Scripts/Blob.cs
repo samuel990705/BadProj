@@ -33,7 +33,11 @@ public class Blob : MonoBehaviour
     // Change blobs to shrinking state when clicked.
     void OnMouseDown()
     {
-        ChangeState(new BlobStateShrinking(this)); 
+        //prevent mutiple shrink
+        if (!(currentState is BlobStateShrinking))
+        {
+            ChangeState(new BlobStateShrinking(this));
+        }
     }
 
     // Destroy blob gameObject and remove it from master blob list.
@@ -41,6 +45,8 @@ public class Blob : MonoBehaviour
     {
         controller.RemoveFromList(this);
         Destroy(gameObject);
-        controller.AddScore(10);
+        //controller.AddScore(10);
+        //the code changed to suit the new game controller things
+        controller.Score = 10;
     }
 }

@@ -41,7 +41,8 @@ public class BlobStateMoving : BlobState
         }
     }
 
-    public void Enter() // Overriden from base class.
+    public override void Enter() // Overriden from base class.
+     //there was no overried, so this will not be called when enterred, new balls just don't move at all.
     {
         base.Enter(); // Call base class.
 

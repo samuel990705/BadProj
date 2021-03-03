@@ -23,6 +23,16 @@ public class GameController : MonoBehaviour
 
     // Score is added on destroying blobs
     private int score;
+    //public property used for replacement
+    public int Score
+    {
+        set
+        {
+            score += value;
+            scoreText.text = score.ToString();
+        }
+    }
+
 
     // List of all the blobs in the game.
     private List<Blob> blobList = new List<Blob>();
@@ -58,11 +68,11 @@ public class GameController : MonoBehaviour
     }
 
     // Add and display score.
-    public void AddScore(int scoreToAdd)
+    /*public void AddScore(int scoreToAdd)
     {
         score += scoreToAdd;
         scoreText.text = score.ToString();
-    }
+    }*/
 
     // Remove blob from blob list.
     public void RemoveFromList(Blob blob)
@@ -77,13 +87,22 @@ public class GameController : MonoBehaviour
         for (int i = 0; i < blobList.Count; i++)
         {
             int lowest = i;
+            for(int j = i+1; j < blobList.Count; j++)
+            {
+                if (blobList[lowest].gameObject.transform.position.y > blobList[j].gameObject.transform.position.y)
+                {
+                    lowest = j;
+                }
+            }
+            // Selection sort algorithm: Find the minumum value in the unsorted part of the array and place it at the beginning of the list.
+            // Repeat for the remaining portion of the array.
+            // Code based on https://www.geeksforgeeks.org/selection-sort/ // Good! Merge this
 
-            // TODO: Implement selection sort here!
 
-            // Swap
-            Blob temp = blobList[i];
-            blobList[i] = blobList[lowest];
-            blobList[lowest] = temp;
+            // TODO: COMPLETE THE SELECTION SORT CODE HERE
+
+            // Swap using a tuple
+            (blobList[i], blobList[lowest]) = (blobList[lowest], blobList[i]); // Good! Merge this
         }
 
         // Remove the 50% of the list with the highest y value.
