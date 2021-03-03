@@ -24,6 +24,17 @@ public class GameController : MonoBehaviour
     // Score is added on destroying blobs
     private int score;
 
+    public int Score
+    {
+        get => score;
+        set
+        {
+            score += value; 
+            scoreText.text = score.ToString();
+        }
+        
+    }
+
     // List of all the blobs in the game.
     private List<Blob> blobList = new List<Blob>();
 
@@ -77,9 +88,11 @@ public class GameController : MonoBehaviour
         for (int i = 0; i < blobList.Count; i++)
         {
             int lowest = i;
-
+            
             // TODO: Implement selection sort here!
-
+            for (int j = i + 1; j < blobList.Count-1; j++) 
+                if (blobList[j].transform.position.y < blobList[lowest].transform.position.y) 
+                    lowest = j; 
             // Swap
             Blob temp = blobList[i];
             blobList[i] = blobList[lowest];
