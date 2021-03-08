@@ -97,6 +97,10 @@ public class GameController : MonoBehaviour
             // Selection sort algorithm: Find the minumum value in the unsorted part of the array and place it at the beginning of the list.
             // Repeat for the remaining portion of the array.
             // Code based on https://www.geeksforgeeks.org/selection-sort/ // Good! Merge this
+
+            for (int j = lowest + 1; j < blobList.Count; j++)//find blob with lowest y value from subarray of unsorted elements
+            {
+                if (blobList[j].transform.position.y < blobList[lowest].transform.position.y)//compares y value of blobs of index lowest and index j
                 {
                     lowest = j;
                 }
