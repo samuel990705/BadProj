@@ -37,7 +37,7 @@ public class BlobStatePulsing : BlobState
 
         if (elapsedTime > endTime)
         {
-            blob.ChangeState(new BlobStateMoving(blob));
+            blob.ChangeState(new BlobStateBlinking(blob));
         }
 
     }
@@ -51,4 +51,5 @@ public class BlobStatePulsing : BlobState
         targetColor = Random.ColorHSV(); // Get a random color.
         endTime = Random.Range(minTime, maxTime);
     }
+
 }
