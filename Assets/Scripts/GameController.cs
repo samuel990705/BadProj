@@ -93,9 +93,15 @@ public class GameController : MonoBehaviour
         {
             int lowest = i;
 
-            // TODO: Implement selection sort here!
+            for (int j = lowest + 1; j < blobList.Count; j++)//find blob with lowest y value from subarray of unsorted elements
+            {
+                if (blobList[j].transform.position.y < blobList[lowest].transform.position.y)//compares y value of blobs of index lowest and index j
+                {
+                    lowest = j;
+                }
+            }
 
-            // Swap
+            // Swap index i with index lowest
             Blob temp = blobList[i];
             blobList[i] = blobList[lowest];
             blobList[lowest] = temp;
@@ -107,6 +113,7 @@ public class GameController : MonoBehaviour
         // Iterate backwards through the list to avoid invalidating index after removing blob.
         for (int i = blobList.Count - 1; i >= toKill; i--) 
         {
+            //Debug.Log("removed " + blobList[i].transform.position.y);
             blobList[i].Kill();
         }
         
