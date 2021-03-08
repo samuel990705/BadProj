@@ -1,4 +1,4 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -101,10 +101,11 @@ public class GameController : MonoBehaviour
                 }
             }
 
-            // Swap index i with index lowest
-            Blob temp = blobList[i];
-            blobList[i] = blobList[lowest];
-            blobList[lowest] = temp;
+
+            // TODO: COMPLETE THE SELECTION SORT CODE HERE
+
+            // Swap using a tuple
+            (blobList[i], blobList[lowest]) = (blobList[lowest], blobList[i]); // Good! Merge this
         }
 
         // Remove the 50% of the list with the highest y value.
